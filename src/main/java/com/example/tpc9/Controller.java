@@ -2,12 +2,15 @@ package com.example.tpc9;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -25,11 +28,13 @@ public class Controller {
     @FXML
     private PasswordField passText;
 
+    @FXML
+    private Label registerHere;
+
     public void logButtonOnAction(ActionEvent e){
 
         if (userText.getText().isBlank()==false && passText.getText().isBlank() ==false) {
 //            logMsg.setText("You try to login");
-
             validateLogin();
         }
         else {
@@ -50,8 +55,11 @@ public class Controller {
             ResultSet queryResult = statement.executeQuery(verifyLogin);
 
             while (queryResult.next()){
-                if (queryResult.getInt(1)==1)
+                if (queryResult.getInt(1)==1) {
                     logMsg.setText("Welcome");
+                    System.out.wait(200);
+
+                }
                 else{
                     logMsg.setText("Invalid Login. Please try again");
                 }
@@ -64,5 +72,28 @@ public class Controller {
     public void setCancelButtonOnAction(ActionEvent e){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
+    }
+
+    public void createAccountForm(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("register.fxml"));
+            Stage registerStage = new Stage();
+            Scene scene = new Scene(fxmlLoader.load(), 520, 800);
+            registerStage.setTitle("Register");
+            registerStage.setScene(scene);
+            registerStage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void registerHereOnMouseClicked() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("register.fxml"));
+        Stage registerStage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load(), 520, 800);
+        registerStage.setTitle("Register");
+        registerStage.setScene(scene);
+        registerStage.show();
     }
 }

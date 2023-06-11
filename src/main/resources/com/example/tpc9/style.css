@@ -1,0 +1,8 @@
+.register{
+    -fx-text-fill: #000000;
+}
+
+.register:hover{
+    -fx-text-fill:  #276221;
+    -fx-cursor:hand;
+}

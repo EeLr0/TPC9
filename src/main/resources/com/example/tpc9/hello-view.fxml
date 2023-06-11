@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpc9.Controller">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #276221;" BorderPane.alignment="CENTER">
@@ -70,6 +69,11 @@
             <Button fx:id="logButton" layoutX="21.0" layoutY="250.0" mnemonicParsing="false" onAction="#logButtonOnAction" prefHeight="30.0" prefWidth="259.0" style="-fx-background-color: #276221;" text="Login" textFill="WHITE" />
             <Button fx:id="cancelButton" layoutX="21.0" layoutY="307.0" mnemonicParsing="false" onAction="#setCancelButtonOnAction" prefHeight="30.0" prefWidth="259.0" style="-fx-background-color: #276221;" text="Cancel" textFill="WHITE" />
             <Label fx:id="logMsg" alignment="CENTER" layoutX="28.0" layoutY="109.0" prefHeight="18.0" prefWidth="246.0" textFill="#276221" />
+            <Label id="register" fx:id="registerHere" alignment="CENTER" layoutX="28.0" layoutY="362.0" onMouseClicked="#registerHereOnMouseClicked" prefHeight="18.0" prefWidth="255.0" styleClass="register" stylesheets="@style.css" text="Not registered yet. Register here">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
